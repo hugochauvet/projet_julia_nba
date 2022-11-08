@@ -14,12 +14,38 @@ L'objectif est de réaliser deux applications avec les mêmes analyses statistiq
 
 # Réalisation
 
-## Les données
+## Première page
+
+### Les données utilisées
 
 Les données utilisées lors de ce projet ont été trouvé sur kaggle (https://www.kaggle.com/datasets/justinas/nba-players-data). On y retrouve des informations sur tous les joueurs depuis 1996 comme leurs attributs physique et leurs stats.
+
+### Page RShiny
 
 Afin de visualiser nos données, on a chosi d'afficher notre dataframe sur la première page de l'application, en y ajoutant des filtres.
 
 Pour l'application Shiny il y avait une fonction (dataTableOutput()) qui permettait d'afficher le dataframe tout en choisi le nombre de ligne à afficher et permettant à l'utilisateur de filtrer les données.
 
 ![Visualisation des données : RShiny](page_one_shiny.png)
+
+### Page Dash.jl
+
+Tandis qu'avec l'application Julia la fonction pour afficher le dataframe (dash_datatable()) n'avait pas les fonctionnalités de filtre. On a donc choisi d'ajouter des listes déroulantes (dropdown) afin de filtrer différentes variables (saison, équipe, nationalité).
+
+![Visualisation des données : Julia](page_one.png)
+
+### Page Rshiny VS Page Dash.jl
+
+Tout d'abord il y a une différence sur la façon de filtrer le dataframe, avec RShiny dans la barre de filtre on peut filtrer plusieurs colonnes à la fois. Alors qu'avec Dash.jl il y a un filtre par variable. Sur l'application faites en Julia une colonne a été rajouté, elle permet d'aller directement sur la page web du joueur afin d'avoir plus d'information.
+Sur l'application RShiny toutes les varibles du dataframe sont présente tandis que sur l'autre application un que les plus pertinantes ont été gardé.
+
+### Difficultés rencontrées
+
+#### RShiny
+
+L'avantage du filtre par défaut de RShiny s'est avéré être aussi un défaut, car malgrès le fait de pouvoir filtrer plusieurs colonne, on ne pouvais pas choisir lesquelles. Par exemple si on voulait filtrer à l'aide d'une valeur numérique, on ne pouvait pas choisir sur quelle variable le faire, donc l'application n'effectuait pas la bonne action.
+On aurait pu faire les mêmes listes déroulantes que l'application Dash.jl mais nous n'avons pas essayé.
+
+#### Julia
+
+La principale difficulté sur cette page est liée au données. En NBA des équipes qui existaient en 1996 n'existe plus maintenant et inversement. Il fallait donc faire des filtres dynamiques dans les listes déroulantes. Par exemple si on sélectionne la saison 1996-97, les équipes OKC et BKL ne doivent pas apparaitre dans la liste déroulante des équipes. Grâce aux callback cette difficultés a été gérées.
