@@ -1,0 +1,25 @@
+---
+title: "Rapport application NBA"
+format:
+    pdf
+---
+
+# Objectif du projet
+
+Pour le cours de Logiciel spécailisé (M1 SSD), nous avions pour objectif d'utiliser des fonctionnalités de R que nous ne matrisions pas. Comme la création d'une application avec Shiny ou alors la création d'un package. Nous avions aussi la possibilité de découvrir le Julia, qui est un langage de programmation de haut niveau très performant pour le calcul scientifique. 
+
+Pour développer le plus de compétences nous avons choisi de réaliser un projet en R et en Julia, afin de comparer les deux langages. Etant amateur de basket, on a choisi un jeu de données sur la NBA pour notre projet. Ensuite, on a décidé de réaliser une analyse statistique de ces données via une application web. En R l'applciation sera développer avec RShiny et en Julia à l'aide de Dash.
+
+L'objectif est de réaliser deux applications avec les mêmes analyses statistiques et les mêmes fonctionnalités afin de comparer les outils Dash et RShiny. 
+
+# Réalisation
+
+## Les données
+
+Les données utilisées lors de ce projet ont été trouvé sur kaggle (https://www.kaggle.com/datasets/justinas/nba-players-data). On y retrouve des informations sur tous les joueurs depuis 1996 comme leurs attributs physique et leurs stats.
+
+Afin de visualiser nos données, on a chosi d'afficher notre dataframe sur la première page de l'application, en y ajoutant des filtres.
+
+Pour l'application Shiny il y avait une fonction (dataTableOutput()) qui permettait d'afficher le dataframe tout en choisi le nombre de ligne à afficher et permettant à l'utilisateur de filtrer les données.
+
+![Visualisation des données : RShiny](page_one_shiny.png)
