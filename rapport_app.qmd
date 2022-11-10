@@ -1,7 +1,10 @@
 ---
 title: "Rapport application NBA"
 format:
-    pdf
+    html
+editor:
+    render-on-save: true
+
 ---
 
 # Objectif du projet
@@ -49,3 +52,35 @@ On aurait pu faire les mêmes listes déroulantes que l'application Dash.jl mais
 #### Julia
 
 La principale difficulté sur cette page est liée au données. En NBA des équipes qui existaient en 1996 n'existe plus maintenant et inversement. Il fallait donc faire des filtres dynamiques dans les listes déroulantes. Par exemple si on sélectionne la saison 1996-97, les équipes OKC et BKL ne doivent pas apparaitre dans la liste déroulante des équipes. Grâce aux callback cette difficultés a été gérées.
+
+## Deuxième page
+
+### Objectifs
+
+L'objectif est de commencé par une analyse statistique univariée, afin de pouvoir visualiser des données de variable continues.
+
+### Page RShiny
+
+Sur l'application RShiny, il y a deux histogrammes sur la variable "age". Le premier est filtré suivant la saison et le deuxième suivant l'équipe, pour cela l'utilisateur utilise une liste déroulante. De plus il est possible de choisir le nombre de barre de l'histogramme.
+
+![Histogramme : RShiny](page_two_shiny.png)
+
+### Page Dash.jl
+
+Après avoir choisi la variable continue qu'il souhaite visualiser, comme sur l'application RShiny l'utilisateur peut filtrer son dataframe à l'aide des saisons. On a choisi de laisser la possibiliter à l'utilisateur de choisir certains paramètres de l'histogramme. Entre un histogramme des effectifs ou de probabilité, ainsi que le nombre de barre.
+
+![Histogramme : Julia](page_two.png)
+
+### Page Rshiny VS Page Dash.jl
+
+Les fonctionnalités pour les pages sont différentes, l'application en RShiny permet d'avoir un histogramme pour les saisons et un pour les équipes tandis que l'application Dash.jl n'a que les saisons.
+
+### Difficultés rencontrées
+
+#### RShiny
+
+
+
+#### Julia
+
+Pas de réelle difficulté sur cette page, comme pour la première il a fallu faire des callaback entre les listes déroulantes.

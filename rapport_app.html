@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Rapport application NBA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="rapport_app_files/libs/clipboard/clipboard.min.js"></script>
+<script src="rapport_app_files/libs/quarto-html/quarto.js"></script>
+<script src="rapport_app_files/libs/quarto-html/popper.min.js"></script>
+<script src="rapport_app_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="rapport_app_files/libs/quarto-html/anchor.min.js"></script>
+<link href="rapport_app_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="rapport_app_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="rapport_app_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="rapport_app_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="rapport_app_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Rapport application NBA</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="objectif-du-projet" class="level1">
+<h1>Objectif du projet</h1>
+<p>Pour le cours de Logiciel spécailisé (M1 SSD), nous avions pour objectif d’utiliser des fonctionnalités de R que nous ne matrisions pas. Comme la création d’une application avec Shiny ou alors la création d’un package. Nous avions aussi la possibilité de découvrir le Julia, qui est un langage de programmation de haut niveau très performant pour le calcul scientifique.</p>
+<p>Pour développer le plus de compétences nous avons choisi de réaliser un projet en R et en Julia, afin de comparer les deux langages. Etant amateur de basket, on a choisi un jeu de données sur la NBA pour notre projet. Ensuite, on a décidé de réaliser une analyse statistique de ces données via une application web. En R l’applciation sera développer avec RShiny et en Julia à l’aide de Dash.</p>
+<p>L’objectif est de réaliser deux applications avec les mêmes analyses statistiques et les mêmes fonctionnalités afin de comparer les outils Dash et RShiny.</p>
+</section>
+<section id="réalisation" class="level1">
+<h1>Réalisation</h1>
+<section id="première-page" class="level2">
+<h2 class="anchored" data-anchor-id="première-page">Première page</h2>
+<section id="les-données-utilisées" class="level3">
+<h3 class="anchored" data-anchor-id="les-données-utilisées">Les données utilisées</h3>
+<p>Les données utilisées lors de ce projet ont été trouvé sur kaggle (https://www.kaggle.com/datasets/justinas/nba-players-data). On y retrouve des informations sur tous les joueurs depuis 1996 comme leurs attributs physique et leurs stats.</p>
+</section>
+<section id="page-rshiny" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny">Page RShiny</h3>
+<p>Afin de visualiser nos données, on a chosi d’afficher notre dataframe sur la première page de l’application, en y ajoutant des filtres.</p>
+<p>Pour l’application Shiny il y avait une fonction (dataTableOutput()) qui permettait d’afficher le dataframe tout en choisi le nombre de ligne à afficher et permettant à l’utilisateur de filtrer les données.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="page_one_shiny.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Visualisation des données : RShiny</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-dash.jl" class="level3">
+<h3 class="anchored" data-anchor-id="page-dash.jl">Page Dash.jl</h3>
+<p>Tandis qu’avec l’application Julia la fonction pour afficher le dataframe (dash_datatable()) n’avait pas les fonctionnalités de filtre. On a donc choisi d’ajouter des listes déroulantes (dropdown) afin de filtrer différentes variables (saison, équipe, nationalité).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="page_one.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Visualisation des données : Julia</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-rshiny-vs-page-dash.jl" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-vs-page-dash.jl">Page Rshiny VS Page Dash.jl</h3>
+<p>Tout d’abord il y a une différence sur la façon de filtrer le dataframe, avec RShiny dans la barre de filtre on peut filtrer plusieurs colonnes à la fois. Alors qu’avec Dash.jl il y a un filtre par variable. Sur l’application faites en Julia une colonne a été rajouté, elle permet d’aller directement sur la page web du joueur afin d’avoir plus d’information. Sur l’application RShiny toutes les varibles du dataframe sont présente tandis que sur l’autre application un que les plus pertinantes ont été gardé.</p>
+</section>
+<section id="difficultés-rencontrées" class="level3">
+<h3 class="anchored" data-anchor-id="difficultés-rencontrées">Difficultés rencontrées</h3>
+<section id="rshiny" class="level4">
+<h4 class="anchored" data-anchor-id="rshiny">RShiny</h4>
+<p>L’avantage du filtre par défaut de RShiny s’est avéré être aussi un défaut, car malgrès le fait de pouvoir filtrer plusieurs colonne, on ne pouvais pas choisir lesquelles. Par exemple si on voulait filtrer à l’aide d’une valeur numérique, on ne pouvait pas choisir sur quelle variable le faire, donc l’application n’effectuait pas la bonne action. On aurait pu faire les mêmes listes déroulantes que l’application Dash.jl mais nous n’avons pas essayé.</p>
+</section>
+<section id="julia" class="level4">
+<h4 class="anchored" data-anchor-id="julia">Julia</h4>
+<p>La principale difficulté sur cette page est liée au données. En NBA des équipes qui existaient en 1996 n’existe plus maintenant et inversement. Il fallait donc faire des filtres dynamiques dans les listes déroulantes. Par exemple si on sélectionne la saison 1996-97, les équipes OKC et BKL ne doivent pas apparaitre dans la liste déroulante des équipes. Grâce aux callback cette difficultés a été gérées.</p>
+</section>
+</section>
+</section>
+<section id="deuxième-page" class="level2">
+<h2 class="anchored" data-anchor-id="deuxième-page">Deuxième page</h2>
+<section id="objectifs" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs">Objectifs</h3>
+<p>L’objectif est de commencé par une analyse statistique univariée, afin de pouvoir visualiser des données de variable continues.</p>
+</section>
+<section id="page-rshiny-1" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-1">Page RShiny</h3>
+<p>Sur l’application RShiny, il y a deux histogrammes sur la variable “age”. Le premier est filtré suivant la saison et le deuxième suivant l’équipe, pour cela l’utilisateur utilise une liste déroulante. De plus il est possible de choisir le nombre de barre de l’histogramme.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="page_two_shiny.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Histogramme : RShiny</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-dash.jl-1" class="level3">
+<h3 class="anchored" data-anchor-id="page-dash.jl-1">Page Dash.jl</h3>
+<p>Après avoir choisi la variable continue qu’il souhaite visualiser, comme sur l’application RShiny l’utilisateur peut filtrer son dataframe à l’aide des saisons. On a choisi de laisser la possibiliter à l’utilisateur de choisir certains paramètres de l’histogramme. Entre un histogramme des effectifs ou de probabilité, ainsi que le nombre de barre.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="page_two.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Histogramme : Julia</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-rshiny-vs-page-dash.jl-1" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-vs-page-dash.jl-1">Page Rshiny VS Page Dash.jl</h3>
+<p>Les fonctionnalités pour les pages sont différentes, l’application en RShiny permet d’avoir un histogramme pour les saisons et un pour les équipes tandis que l’application Dash.jl n’a que les saisons.</p>
+</section>
+<section id="difficultés-rencontrées-1" class="level3">
+<h3 class="anchored" data-anchor-id="difficultés-rencontrées-1">Difficultés rencontrées</h3>
+<section id="rshiny-1" class="level4">
+<h4 class="anchored" data-anchor-id="rshiny-1">RShiny</h4>
+</section>
+<section id="julia-1" class="level4">
+<h4 class="anchored" data-anchor-id="julia-1">Julia</h4>
+<p>Pas de réelle difficulté sur cette page, comme pour la première il a fallu faire des callaback entre les listes déroulantes.</p>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
