@@ -74,7 +74,7 @@ ul.task-list{list-style: none;}
 <p>Pour l’application Shiny il y avait une fonction (dataTableOutput()) qui permettait d’afficher le dataframe tout en choisi le nombre de ligne à afficher et permettant à l’utilisateur de filtrer les données.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="page_one_shiny.png" class="img-fluid figure-img"></p>
+<p><img src="image/page_one_shiny.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Visualisation des données : RShiny</figcaption><p></p>
 </figure>
 </div>
@@ -84,7 +84,7 @@ ul.task-list{list-style: none;}
 <p>Tandis qu’avec l’application Julia la fonction pour afficher le dataframe (dash_datatable()) n’avait pas les fonctionnalités de filtre. On a donc choisi d’ajouter des listes déroulantes (dropdown) afin de filtrer différentes variables (saison, équipe, nationalité).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="page_one.png" class="img-fluid figure-img"></p>
+<p><img src="image/page_one.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Visualisation des données : Julia</figcaption><p></p>
 </figure>
 </div>
@@ -116,7 +116,7 @@ ul.task-list{list-style: none;}
 <p>Sur l’application RShiny, il y a deux histogrammes sur la variable “age”. Le premier est filtré suivant la saison et le deuxième suivant l’équipe, pour cela l’utilisateur utilise une liste déroulante. De plus il est possible de choisir le nombre de barre de l’histogramme.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="page_two_shiny.png" class="img-fluid figure-img"></p>
+<p><img src="image/page_two_shiny.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Histogramme : RShiny</figcaption><p></p>
 </figure>
 </div>
@@ -126,7 +126,7 @@ ul.task-list{list-style: none;}
 <p>Après avoir choisi la variable continue qu’il souhaite visualiser, comme sur l’application RShiny l’utilisateur peut filtrer son dataframe à l’aide des saisons. On a choisi de laisser la possibiliter à l’utilisateur de choisir certains paramètres de l’histogramme. Entre un histogramme des effectifs ou de probabilité, ainsi que le nombre de barre.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="page_two.png" class="img-fluid figure-img"></p>
+<p><img src="image/page_two.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Histogramme : Julia</figcaption><p></p>
 </figure>
 </div>
@@ -145,6 +145,91 @@ ul.task-list{list-style: none;}
 <p>Pas de réelle difficulté sur cette page, comme pour la première il a fallu faire des callaback entre les listes déroulantes.</p>
 </section>
 </section>
+</section>
+<section id="troisième-page" class="level2">
+<h2 class="anchored" data-anchor-id="troisième-page">Troisième page</h2>
+<section id="objectifs-1" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-1">Objectifs</h3>
+<p>Après fais une analyse univariée, on a choisi d’en faire une bivariée entre les variables continues à l’aide d’un nuage de point. Cela nous permet de voir s’il y a des liens ou non entre différentes variables.</p>
+</section>
+<section id="page-rshiny-2" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-2">Page RShiny</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="image/page_three_shiny.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Nuage de points : RShiny</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-dash.jl-2" class="level3">
+<h3 class="anchored" data-anchor-id="page-dash.jl-2">Page Dash.jl</h3>
+<p>Comme les autres page, il y a la possibilité de choisir des filtres sur les variables. On a ajouté le coefficient de corrélation linéaire dans le titre du graphe afin de calculer le lien entre les deux variables sélectionnées. Un paramètre en plus est “normalize with usage per possession”, il permet d’avoir des données plus cohérentes pour les variables de score (points, rebonds, assistes) car les joueurs n’ont pas le même temps de jeu.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="image/page_three.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Nuage de points : Julia</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-rshiny-vs-page-dash.jl-2" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-vs-page-dash.jl-2">Page RShiny VS Page Dash.jl</h3>
+</section>
+<section id="difficultés-rencontrées-2" class="level3">
+<h3 class="anchored" data-anchor-id="difficultés-rencontrées-2">Difficultés rencontrées</h3>
+<section id="rshiny-2" class="level4">
+<h4 class="anchored" data-anchor-id="rshiny-2">RShiny</h4>
+</section>
+<section id="julia-2" class="level4">
+<h4 class="anchored" data-anchor-id="julia-2">Julia</h4>
+<p>Au début les données avaient une forme très peu linéaire lorsde tous les croisements de variable à cause de la différence de temps de jeu et du nombre de ballon touché par attaque. Tout d’abord on a supprimé les joueurs qui avaient joué peu de match dans la saison (et qui jouaient aussi peu de minute). Ensuite on a créé une formule pour essayer de normaliser les données de score, on prend la variable du pourcentage d’utilisation par possession, et on multiplie une variable de score à deux fois le maximum d’utilisation - l’utilisation du joueur en question.</p>
+</section>
+</section>
+</section>
+<section id="quatrième-page" class="level2">
+<h2 class="anchored" data-anchor-id="quatrième-page">Quatrième page</h2>
+<section id="objectifs-2" class="level3">
+<h3 class="anchored" data-anchor-id="objectifs-2">Objectifs</h3>
+<p>Le but était de pouvoir faire une recherche sur un joueur ou une équipe spécifique et avoir des statistiques basique dessus.</p>
+</section>
+<section id="page-rshiny-3" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-3">Page RShiny</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="image/page_four_shiny_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Recherche joueur : RShiny</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="image/page_four_shiny_2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Recherche équipe : RShiny</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-dash.jl-3" class="level3">
+<h3 class="anchored" data-anchor-id="page-dash.jl-3">Page Dash.jl</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="image/page_four.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Recherche joueur : Julia</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="page-rshiny-vs-page-dash.jl-3" class="level3">
+<h3 class="anchored" data-anchor-id="page-rshiny-vs-page-dash.jl-3">Page RShiny VS Page Dash.jl</h3>
+</section>
+<section id="difficultés-rencontrées-3" class="level3">
+<h3 class="anchored" data-anchor-id="difficultés-rencontrées-3">Difficultés rencontrées</h3>
+<section id="rshiny-3" class="level4">
+<h4 class="anchored" data-anchor-id="rshiny-3">RShiny</h4>
+</section>
+<section id="julia-3" class="level4">
+<h4 class="anchored" data-anchor-id="julia-3">Julia</h4>
+</section>
+</section>
+</section>
+<section id="idées-non-réalisées" class="level2">
+<h2 class="anchored" data-anchor-id="idées-non-réalisées">Idées non réalisées</h2>
 </section>
 </section>
 

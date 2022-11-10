@@ -29,13 +29,13 @@ Afin de visualiser nos données, on a chosi d'afficher notre dataframe sur la pr
 
 Pour l'application Shiny il y avait une fonction (dataTableOutput()) qui permettait d'afficher le dataframe tout en choisi le nombre de ligne à afficher et permettant à l'utilisateur de filtrer les données.
 
-![Visualisation des données : RShiny](page_one_shiny.png)
+![Visualisation des données : RShiny](image/page_one_shiny.png)
 
 ### Page Dash.jl
 
 Tandis qu'avec l'application Julia la fonction pour afficher le dataframe (dash_datatable()) n'avait pas les fonctionnalités de filtre. On a donc choisi d'ajouter des listes déroulantes (dropdown) afin de filtrer différentes variables (saison, équipe, nationalité).
 
-![Visualisation des données : Julia](page_one.png)
+![Visualisation des données : Julia](image/page_one.png)
 
 ### Page Rshiny VS Page Dash.jl
 
@@ -63,13 +63,13 @@ L'objectif est de commencé par une analyse statistique univariée, afin de pouv
 
 Sur l'application RShiny, il y a deux histogrammes sur la variable "age". Le premier est filtré suivant la saison et le deuxième suivant l'équipe, pour cela l'utilisateur utilise une liste déroulante. De plus il est possible de choisir le nombre de barre de l'histogramme.
 
-![Histogramme : RShiny](page_two_shiny.png)
+![Histogramme : RShiny](image/page_two_shiny.png)
 
 ### Page Dash.jl
 
 Après avoir choisi la variable continue qu'il souhaite visualiser, comme sur l'application RShiny l'utilisateur peut filtrer son dataframe à l'aide des saisons. On a choisi de laisser la possibiliter à l'utilisateur de choisir certains paramètres de l'histogramme. Entre un histogramme des effectifs ou de probabilité, ainsi que le nombre de barre.
 
-![Histogramme : Julia](page_two.png)
+![Histogramme : Julia](image/page_two.png)
 
 ### Page Rshiny VS Page Dash.jl
 
@@ -84,3 +84,60 @@ Les fonctionnalités pour les pages sont différentes, l'application en RShiny p
 #### Julia
 
 Pas de réelle difficulté sur cette page, comme pour la première il a fallu faire des callaback entre les listes déroulantes.
+
+## Troisième page
+
+### Objectifs
+
+Après fais une analyse univariée, on a choisi d'en faire une bivariée entre les variables continues à l'aide d'un nuage de point. Cela nous permet de voir s'il y a des liens ou non entre différentes variables.
+
+### Page RShiny
+
+![Nuage de points : RShiny](image/page_three_shiny.png)
+
+### Page Dash.jl
+
+Comme les autres page, il y a la possibilité de choisir des filtres sur les variables. On a ajouté le coefficient de corrélation linéaire dans le titre du graphe afin de calculer le lien entre les deux variables sélectionnées. Un paramètre en plus est "normalize with usage per possession", il permet d'avoir des données plus cohérentes pour les variables de score (points, rebonds, assistes) car les joueurs n'ont pas le même temps de jeu.
+
+![Nuage de points : Julia](image/page_three.png)
+
+### Page RShiny VS Page Dash.jl
+
+### Difficultés rencontrées
+
+#### RShiny
+
+#### Julia
+
+Au début les données avaient une forme très peu linéaire lorsde tous les croisements de variable à cause de la différence de temps de jeu et du nombre de ballon touché par attaque. Tout d'abord on a supprimé les joueurs qui avaient joué peu de match dans la saison (et qui jouaient aussi peu de minute). Ensuite on a créé une formule pour essayer de normaliser les données de score, on prend la variable du pourcentage d'utilisation par possession, et on multiplie une variable de score à deux fois le maximum d'utilisation - l'utilisation du joueur en question.
+
+
+
+
+
+## Quatrième page
+
+### Objectifs
+
+Le but était de pouvoir faire une recherche sur un joueur ou une équipe spécifique et avoir des statistiques basique dessus.
+
+### Page RShiny
+
+![Recherche joueur : RShiny](image/page_four_shiny_1.png)
+
+![Recherche équipe : RShiny](image/page_four_shiny_2.png)
+
+### Page Dash.jl
+
+![Recherche joueur : Julia](image/page_four.png)
+
+### Page RShiny VS Page Dash.jl
+
+### Difficultés rencontrées
+
+#### RShiny
+
+#### Julia
+
+## Idées non réalisées
+
